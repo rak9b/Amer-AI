@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: #2D5016; /* deep-green-800 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #F4A261; /* harvest-gold */
+    --color-secondary-foreground: #1A1A1A; /* gray-900 */
+    
+    /* Accent Colors */
+    --color-accent: #E76F51; /* terracotta */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Background Colors */
+    --color-background: #FEFEFE; /* white */
+    --color-foreground: #1A1A1A; /* gray-900 */
+    
+    /* Surface Colors */
+    --color-card: #F8F9FA; /* gray-50 */
+    --color-card-foreground: #1A1A1A; /* gray-900 */
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1A1A1A; /* gray-900 */
+    
+    /* Muted Colors */
+    --color-muted: #F8F9FA; /* gray-50 */
+    --color-muted-foreground: #6B7280; /* gray-500 */
+    
+    /* Border and Input */
+    --color-border: #E5E7EB; /* gray-200 */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #2D5016; /* deep-green-800 */
+    
+    /* Status Colors */
+    --color-success: #059669; /* emerald-600 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    --color-warning: #D97706; /* amber-600 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    --color-error: #DC2626; /* red-600 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    --color-destructive: #DC2626; /* red-600 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Brand Specific Colors */
+    --color-harvest-gold: #F4A261; /* harvest-gold */
+    --color-earth-brown: #8B4513; /* saddle-brown */
+    --color-rice-green: #9ACD32; /* yellow-green */
+    --color-sky-blue: #87CEEB; /* sky-blue */
+    --color-fertile-soil: #654321; /* dark-brown */
+    
+    /* Radius */
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body, p, span, div {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Heritage Pattern Overlay */
+  .heritage-pattern {
+    position: relative;
+  }
+  
+  .heritage-pattern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232D5016' fill-opacity='0.05'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    transform: rotate(15deg);
+    pointer-events: none;
+  }
+  
+  /* Monsoon Gradient Animation */
+  .monsoon-gradient {
+    background: linear-gradient(135deg, #8B4513 0%, #2D5016 50%, #87CEEB 100%);
+    background-size: 300% 300%;
+    animation: monsoonFlow 8s ease-in-out infinite;
+  }
+  
+  @keyframes monsoonFlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* AI Pulse Effect */
+  .ai-pulse {
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
+    animation: aiPulse 2s infinite ease-in-out;
+  }
+  
+  .ai-pulse:hover {
+    transform: scale(1.02);
+  }
+  
+  @keyframes aiPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(74, 222, 128, 0.4); }
+    50% { box-shadow: 0 0 30px rgba(74, 222, 128, 0.6); }
+  }
+  
+  /* Crop Growth Progress */
+  .crop-progress {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .crop-progress::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to top, #059669, #9ACD32);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    animation: cropGrowth 1.5s ease-out forwards;
+  }
+  
+  @keyframes cropGrowth {
+    to { transform: scaleY(1); }
+  }
+  
+  /* Community Ripple Effect */
+  .community-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .community-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(45, 80, 22, 0.3);
+    transform: translate(-50%, -50%) scale(0);
+    animation: rippleEffect 0.8s ease-out;
+  }
+  
+  .community-ripple:active::after {
+    animation: rippleEffect 0.8s ease-out;
+  }
+  
+  @keyframes rippleEffect {
+    to {
+      width: 100px;
+      height: 100px;
+      transform: translate(-50%, -50%) scale(3);
+      opacity: 0;
+    }
+  }
+  
+  /* Hover Magnetism */
+  .hover-magnetic {
+    transition: all 200ms ease-out;
+  }
+  
+  .hover-magnetic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(45, 80, 22, 0.15);
+  }
+  
+  /* Natural Shadows */
+  .shadow-natural {
+    box-shadow: 0 4px 20px rgba(45, 80, 22, 0.1);
+  }
+  
+  .shadow-natural-lg {
+    box-shadow: 0 8px 30px rgba(45, 80, 22, 0.15);
+  }
+  
+  /* Smooth Transitions */
+  .transition-natural {
+    transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+@layer utilities {
+  /* Text Colors */
+  .text-primary-dark {
+    color: #1A1A1A;
+  }
+  
+  .text-secondary-gray {
+    color: #6B7280;
+  }
+  
+  /* Brand Gradients */
+  .bg-earth-to-sky {
+    background: linear-gradient(135deg, #8B4513 0%, #2D5016 50%, #87CEEB 100%);
+  }
+  
+  .bg-harvest-gradient {
+    background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%);
+  }
+  
+  /* Spacing System */
+  .space-golden-xs { margin: 8px; }
+  .space-golden-sm { margin: 13px; }
+  .space-golden-md { margin: 21px; }
+  .space-golden-lg { margin: 34px; }
+  .space-golden-xl { margin: 55px; }
+  
+  /* Border Radius */
+  .rounded-organic {
+    border-radius: 8px;
+  }
+  
+  .rounded-organic-sm {
+    border-radius: 4px;
+  }
+}
